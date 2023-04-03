@@ -19,6 +19,12 @@ function handleGalleryItemClick(event) {
     const imageSrc = event.target.dataset.source;
     const instance = basicLightbox.create(`<img src="${imageSrc}" width="800" height="600">`);
     instance.show();
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        instance.close();
+      }
+    });
   }
 
 const galleryImages = document.querySelectorAll('.gallery__image');
@@ -26,10 +32,6 @@ galleryImages.forEach(image => {
   image.addEventListener('click', handleGalleryItemClick);
 });
 
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    instance.close();
-  }
-});
+
 
 
