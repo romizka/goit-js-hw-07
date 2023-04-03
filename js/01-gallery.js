@@ -26,4 +26,10 @@ galleryImages.forEach(image => {
   image.addEventListener('click', handleGalleryItemClick);
 });
 
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    instance.close();
+  }
+});
+
 

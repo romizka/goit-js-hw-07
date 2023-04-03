@@ -5,7 +5,7 @@ console.log(galleryItems);
 
 
 const galleryContainer = document.querySelector('.gallery');
-const galleryLinks = document.querySelectorAll('.gallery__link');
+
 
 galleryContainer.innerHTML = galleryItems.map(item => `
 <li class="gallery__item">
@@ -15,17 +15,15 @@ galleryContainer.innerHTML = galleryItems.map(item => `
 </li>
 `).join('');
 
-
-galleryLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    const lightbox = new SimpleLightbox(link, {
-        captions: true,
-        captionPosition: 'bottom',
-        captionType: 'attr',
-        captionsData: 'alt',
-        captionDelay: 250,
-      });
-  });
+galleryContainer.addEventListener('click', (e) => {
+  e.preventDefault()
 });
+
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  captions: true,
+  captionPosition: 'bottom',
+  captionType: 'attr',
+  captionsData: 'alt',
+  captionDelay: 250,
+      });
